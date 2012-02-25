@@ -1,0 +1,17 @@
+# servers for your realm:
+krb5-config krb5-config/kerberos_servers string<% @kerb_servers.each do |server| -%> <%= server %><% end -%>
+
+# Default Kerberos version 5 realm:
+krb5-config krb5-config/default_realm string <%= @kerb_domain %>
+
+# Administrative server for your Kerberos realm:
+krb5-config krb5-config/admin_server string <%= @kerb_admin_server %> 
+
+# add this domain
+krb5-config krb5-config/add_servers_realm string <%= @kerb_domain %>
+
+# Does DNS contain pointers to your realm's Kerberos Servers?
+krb5-config krb5-config/dns_for_default boolean false
+
+# Add locations of default Kerberos servers to /etc/krb5.conf?
+krb5-config krb5-config/add_servers boolean true
